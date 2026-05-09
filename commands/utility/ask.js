@@ -1,7 +1,7 @@
+// src/commands/utility/ask.js
 const { SlashCommandBuilder } = require('discord.js');
 
 const GROQ_API_KEY = process.env.GROQ_API_KEY;
-console.log('GROQ KEY:', process.env.GROQ_API_KEY);
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -27,24 +27,33 @@ module.exports = {
         },
         body: JSON.stringify({
           model: 'llama3-8b-8192',
-          messages: [{ role: 'user', content: question }],
-          max_tokens: 500
+          messages: [
+            { role: 'system', content: 'Be concise. Keep responses short and to the point.' },
+            { role: 'user', content: question }
+          ],
+          max_tokens: 300
         })
       });
 
-        const data = await res.json();
-        console.log(JSON.stringify(data, null, 2));
+      const data = await res.json();
+      console.log(JSON.stringify(data, null, 2));
 
-        const answer = data.choices?.[0]?.message?.content;
+      const answer = data.choices?.[0]?.message?.content;
 
-        if (!answer) {
+      if (!answer) {
         await interaction.editReply('no response from groq, check console.');
         return;
-        }
+      }
 
-        await interaction.editReply(answer);
+      const chunks = answer.match(/[\s\S]{1,2000}/g);
+      await interaction.editReply(chunks[0]);
+      for (let i = 1; i < chunks.length; i++) {
+        await interaction.channel.send(chunks[i]);
+      }
+
     } catch (err) {
-      await interaction.editReply(err);
+      await interaction.editReply('something went wrong mate.');
+      console.error(err);
     }
   }
 };
