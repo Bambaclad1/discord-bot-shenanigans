@@ -1,6 +1,13 @@
 proper readme coming soon
 this was written on mac with nano actually heres my neofetch
 
+req: config.json in root directory with token looking like
+```json
+{
+        "token": "YOUR_TOKEN_HERE"
+}
+```
+
 ```bash
 bambas@bambas-MacBookAir:~/discord-bot-shenanigans$ neofetch
                                                              bambas@bambas-MacBookAir
