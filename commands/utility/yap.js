@@ -18,7 +18,7 @@ module.exports = {
     const interval = setInterval(async () => {
       const random = messageArray[Math.floor(Math.random() * messageArray.length)];
       await interaction.channel.send(random.content);
-    }, 50);
+    }, 5000);
 
     setTimeout(() => clearInterval(interval), 30000);
   }
