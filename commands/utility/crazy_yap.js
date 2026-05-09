@@ -3,10 +3,10 @@ const { SlashCommandBuilder } = require('discord.js');
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('yap')
-    .setDescription('Fetches messages from the current channel (limit 100), randomizes and sends it in the server.'),
+    .setDescription('Fetches messages from the current channel (limit 1000), randomizes and sends it in the server. WARNING: GOES HAYWIRE ON DELAY!'),
 
   async execute(interaction) {
-    await interaction.reply('yapping...');
+    await interaction.reply('get ready for my big yap...');
 
     const messages = await interaction.channel.messages.fetch({ limit: 100 });
     const messageArray = [...messages.values()].filter(m => !m.author.bot && m.content);
