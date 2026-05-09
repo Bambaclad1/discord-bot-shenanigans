@@ -31,10 +31,17 @@ module.exports = {
         })
       });
 
-      const data = await res.json();
-      const answer = data.choices[0].message.content;
+        const data = await res.json();
+        console.log(JSON.stringify(data, null, 2));
 
-      await interaction.editReply(answer);
+        const answer = data.choices?.[0]?.message?.content;
+
+        if (!answer) {
+        await interaction.editReply('no response from groq, check console.');
+        return;
+        }
+
+        await interaction.editReply(answer);
     } catch (err) {
       await interaction.editReply(err);
     }
