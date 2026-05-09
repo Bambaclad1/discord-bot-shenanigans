@@ -1,5 +1,7 @@
 proper readme coming soon
 this was written on mac with nano actually heres my neofetch
+
+```bash
 bambas@bambas-MacBookAir:~/discord-bot-shenanigans$ neofetch
                                                              bambas@bambas-MacBookAir
                                                              ------------------------
@@ -30,3 +32,4 @@ bambas@bambas-MacBookAir:~/discord-bot-shenanigans$ neofetch
                       :--.  .---+:..
                        :-.  .--
                         =   : :
+```
