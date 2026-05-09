@@ -8,7 +8,7 @@ module.exports = {
   async execute(interaction) {
     await interaction.reply('get ready for my big yap...');
 
-    const messages = await interaction.channel.messages.fetch({ limit: 500 });
+    const messages = await interaction.channel.messages.fetch({ limit: 100 });
     const messageArray = [...messages.values()].filter(m => !m.author.bot && m.content);
 
     if (messageArray.length === 0) {
