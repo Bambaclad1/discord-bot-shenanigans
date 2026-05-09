@@ -3,12 +3,12 @@ const { SlashCommandBuilder } = require('discord.js');
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('yap')
-    .setDescription('warning: spam. Fetches messages from the current channel (limit 100), randomizes and sends it in the server.'),
+    .setDescription('/yap but spammy and bigger limit.'),
 
   async execute(interaction) {
     await interaction.reply('get ready for my big yap...');
 
-    const messages = await interaction.channel.messages.fetch({ limit: 100 });
+    const messages = await interaction.channel.messages.fetch({ limit: 500 });
     const messageArray = [...messages.values()].filter(m => !m.author.bot && m.content);
 
     if (messageArray.length === 0) {
