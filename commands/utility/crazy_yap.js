@@ -3,7 +3,7 @@ const { SlashCommandBuilder } = require('discord.js');
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('yap')
-    .setDescription('Fetches messages from the current channel (limit 1000), randomizes and sends it in the server. WARNING: GOES HAYWIRE ON DELAY!'),
+    .setDescription('warning: spam. Fetches messages from the current channel (limit 100), randomizes and sends it in the server.'),
 
   async execute(interaction) {
     await interaction.reply('get ready for my big yap...');
