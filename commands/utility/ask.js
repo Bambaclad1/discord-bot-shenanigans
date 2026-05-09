@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
+require('dotenv').config({ path: '../../.env' });
 
 const GROQ_API_KEY = process.env.GROQ_API_KEY;
 
