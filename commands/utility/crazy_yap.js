@@ -2,7 +2,7 @@ const { SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName('yap')
+    .setName('crazy_yap')
     .setDescription('/yap but spammy and bigger limit.'),
 
   async execute(interaction) {
